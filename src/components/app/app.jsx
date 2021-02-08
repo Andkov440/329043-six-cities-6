@@ -20,9 +20,7 @@ const App = ({offerCount}) => {
         <Route exact path="/login">
           <LoginScreen />
         </Route>
-        <Route exact path="/offer">
-          <OfferScreen />
-        </Route>
+        <Route exact path="/offer/:id" component={OfferScreen} />
         <Route>
           <NotFoundScreen />
         </Route>
