@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/main/main';
+import App from './components/main-screen/main-screen';
 
 const Setting = {
   OFFER_COUNT: 30

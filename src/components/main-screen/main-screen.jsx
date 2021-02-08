@@ -2,9 +2,10 @@ import React from 'react';
 import PlaceCard from '../place-card';
 import PropTypes from 'prop-types';
 
+
 const cardsCount = [1, 2, 3, 4, 5];
 
-const Main = ({offerCount}) => {
+const MainScreen = ({offerCount}) => {
 
   return (
     <React.Fragment>
@@ -103,8 +104,8 @@ const Main = ({offerCount}) => {
   );
 };
 
-Main.propTypes = {
+MainScreen.propTypes = {
   offerCount: PropTypes.number.isRequired,
 };
 
-export default Main;
+export default MainScreen;
