@@ -7,20 +7,23 @@ import LoginScreen from '../pages/login-screen/login-screen';
 import OfferScreen from '../pages/offer-screen/offer-screen';
 import NotFoundScreen from '../pages/not-found-screen/not-found-screen';
 
-const App = ({offerCount}) => {
+const App = (props) => {
+  const {offerCount, offers, reviews} = props;
+  const [firstOffer] = offers;
+  const [firstReview] = reviews;
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <MainScreen offerCount={offerCount} />
+          <MainScreen offerCount={offerCount} offers={offers}/>
         </Route>
         <Route exact path="/favorites">
-          <FavoritesScreen />
+          <FavoritesScreen offers={offers}/>
         </Route>
         <Route exact path="/login">
           <LoginScreen />
         </Route>
-        <Route exact path="/offer/:id" component={OfferScreen} />
+        <Route exact path="/offer/:id" render={() => <OfferScreen firstOffer={firstOffer} firstReview={firstReview} {...props}/>} />
         <Route>
           <NotFoundScreen />
         </Route>
@@ -31,6 +34,8 @@ const App = ({offerCount}) => {
 
 App.propTypes = {
   offerCount: PropTypes.number.isRequired,
+  offers: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired
 };
 
 export default App;

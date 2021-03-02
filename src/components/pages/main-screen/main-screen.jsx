@@ -1,15 +1,12 @@
 import React from 'react';
-import PlaceCard from '../../place-card';
+import OfferList from './offers-list';
 import PropTypes from 'prop-types';
 import Header from '../../wrappers/header/header';
 
-
-const cardsCount = [1, 2, 3, 4, 5];
-
-const MainScreen = ({offerCount}) => {
-
+const MainScreen = (props) => {
+  const {offerCount, offers} = props;
   return (
-    <React.Fragment>
+    <>
       {<Header />}
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
@@ -70,7 +67,7 @@ const MainScreen = ({offerCount}) => {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {cardsCount.map((card, i) => <PlaceCard key={card + i} />)}
+                {<OfferList offers={offers}/>}
               </div>
             </section>
             <div className="cities__right-section">
@@ -79,12 +76,13 @@ const MainScreen = ({offerCount}) => {
           </div>
         </div>
       </main>
-    </React.Fragment>
+    </>
   );
 };
 
 MainScreen.propTypes = {
   offerCount: PropTypes.number.isRequired,
+  offers: PropTypes.array.isRequired,
 };
 
 export default MainScreen;
