@@ -6,7 +6,7 @@ const OfferList = (props) => {
   const {offers} = props;
 
   const [activeOfferCard, setActiveOfferCard] = useState(null);
-
+  console.log(activeOfferCard);
   const handleMouseIn = (selectedCard) => {
     setActiveOfferCard(selectedCard);
   };
